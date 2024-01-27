@@ -10,7 +10,7 @@ export class DatabaseConfigService implements TypeOrmOptionsFactory {
 	createTypeOrmOptions(): TypeOrmModuleOptions {
 		const dbConfig = this.envService.dbConfig;
 		return {
-			type: "mysql,
+			type: "mysql",
 			host: dbConfig.host,
 			port: dbConfig.port,
 			database: dbConfig.dbName,
