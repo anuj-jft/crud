@@ -20,7 +20,7 @@ export class DonationService{
     // Add the "rsf" prefix
         const order_id = `rsf${numericPart}`;
         body.order_id = order_id;
-        console.log("🚀 ~ DonationService ~ createDonation ~ body:", body)
+        console.log("🚀 ~ DonationService  ~ createDonation ~ body:", body)
         const result = await axios.post('https://allapi.in/order/create', body);
         return {...result?.data, order_id};
         console.log("🚀 ~ DonationService ~ createDonation ~ result:", result)
