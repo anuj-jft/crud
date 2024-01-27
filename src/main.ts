@@ -9,6 +9,6 @@ async function bootstrap() {
   app.setGlobalPrefix('/api');
   SwaggerSetup(app, { environment: 'development' });
   const envService = app.get(EnvService);
-  await app.listen(envService.applicationPort);
+  await app.listen(4000);
 }
 bootstrap();
