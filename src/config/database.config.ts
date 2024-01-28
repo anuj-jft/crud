@@ -9,11 +9,11 @@ export class DatabaseConfigService implements TypeOrmOptionsFactory {
 	createTypeOrmOptions(): TypeOrmModuleOptions {
 		return {
 			type: "mysql",
-			host: "localhost",
-			port: 3306,
-			database: "rsfindia",
-			username: "phpmyadmin",
-			password: "123456789",
+			host: "mysql-8df05ff-rsf-india.a.aivencloud.com",
+			port: 14450,
+			database: "defaultdb",
+			username: "avnadmin",
+			password: "AVNS_CkjxJO3cQghii3MxMSR",
 			synchronize:  true,
 			entities: ['dist/database/entities/*{.ts,.js}'],
 		}
