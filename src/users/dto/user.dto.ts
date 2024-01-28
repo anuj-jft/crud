@@ -21,7 +21,7 @@ export class UserDto {
 	lname: string;
 
 	@IsString()
-	@IsNotEmpty()
+	@IsOptional()
 	@ApiProperty({
 		description: 'Last Name of the user',
 		type: String
@@ -77,7 +77,7 @@ export class UserDto {
 	lastLogin: string;
 
 	@IsString()
-	@IsNotEmpty()
+	// @IsNotEmpty()
 	@ApiProperty({
 		description: 'Country from where user live',
 		type: String

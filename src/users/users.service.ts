@@ -21,6 +21,13 @@ export class UsersService {
 		return user;
 	}
 
+	async getUserDetail(email: string, mobile: string): Promise<User>{
+		let user = await this.dataSource.getRepository(User).findOne({where: {email}});
+		if(user) return user;
+		user = await this.dataSource.getRepository(User).findOne({where: {mobile}});
+		return user
+	}
+
 	async getAllUsersList(): Promise<UserResponseDto[]> {
 		const allUsers = await this.dataSource.getRepository(User).find();
 		allUsers.forEach((user) => {

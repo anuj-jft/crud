@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { DonationService } from "./donation.service";
 
 
@@ -8,6 +8,11 @@ export class DonationController {
     constructor(
         private readonly donationService: DonationService
     ) {}
+
+    @Get('/')
+    async getAllDonation(){
+        return await this.donationService.fetchAllDonations();
+    }
 
     @Post('/')
     async createDonationEvent(@Body() body: any) {

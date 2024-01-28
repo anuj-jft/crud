@@ -1,13 +1,14 @@
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany } from "typeorm";
 import { BaseEntity } from "./Base.entity";
 import { Role } from "./Role.entity";
+import { Donation } from "./Donation.entity";
 
 @Entity()
 export class User extends BaseEntity {
 	@Column({ type: 'varchar', nullable: false })
 	fname: string;
 
-	@Column({ type: 'varchar' })
+	@Column({ type: 'varchar', nullable: true, default: '' })
 	lname: string;
 
 	@Column({ type: 'varchar', nullable: true, unique: true })
@@ -40,4 +41,7 @@ export class User extends BaseEntity {
 	@ManyToOne(() => Role, role => role.user, { eager: true })
 	@JoinColumn({ name: 'role' })
 	role: Role;
+
+	@OneToMany(() => Donation, donation => donation.id)
+    donation: Donation[];
 }
